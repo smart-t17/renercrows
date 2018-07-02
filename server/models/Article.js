@@ -1,17 +1,17 @@
 const mongoose = require('mongoose')
 
-let ArticleSchema = new mongoose.Schema (
+let ArticleSchema = new mongoose.Schema(
     {
-        text : String,
+        text: String,
         title: String,
         description: String,
         feature_img: String,
-        claps:Number,
+        claps: Number,
         author: {
             type: mongoose.Schema.Types.ObjectId,
-            ref : 'User'
+            ref: 'User'
         },
-        comments:[
+        comments: [
             {
                 author: {
                     type: mongoose.Schema.Types.ObjectId,
@@ -22,21 +22,21 @@ let ArticleSchema = new mongoose.Schema (
         ]
     }
 );
-
-ArticleSchema.methods.claps = function() {
+ArticleSchema.methods.clap = function() {
     this.claps++
     return this.save()
 }
-
-ArticleSchema.method.addAuthor = function (author_id) {
+ArticleSchema.methods.comment = function(c) {
+    this.comments.push(c)
+    return this.save()
+}
+ArticleSchema.methods.addAuthor = function (author_id) {
     this.author = author_id
     return this.save()
 }
-
-ArticleSchema.method.getUserArticle = function (_id) {
+ArticleSchema.methods.getUserArticle = function (_id) {
     Article.find({'author': _id}).then((article) => {
         return article
     })
 }
-
 module.exports = mongoose.model('Article', ArticleSchema)

@@ -1,5 +1,5 @@
-// src/components/EditorHeader.js
 import React, { Component } from 'react';
+
 class EditorHeader extends Component {
     render() {
         return ( 
@@ -11,12 +11,14 @@ class EditorHeader extends Component {
             <img alt="Stories" src="/assets/img/stories-logo.svg" height="40"/>
         </a>
       </div>
+
       <ul className="nav navbar-nav filter-links">
         <li>
           <a href="javascript:void(0);" data-behavior="editor-message">
           </a>
         </li>
       </ul>
+
       <div className="collapse navbar-collapse">
         <ul className="nav navbar-nav navbar-right">
           <li className="publish-button">
@@ -28,9 +30,11 @@ class EditorHeader extends Component {
       </div> 
     </div>
   </nav>
+
     <div data-behavior="progress-bar" className="progress-bar"></div>
 </div>
         );
     }
 }
+
 export default EditorHeader;

@@ -11,7 +11,7 @@ const cloudinary = require('cloudinary')
 
 const app = express()
 const router = express.Router()
-const url = process.env.MONGODB_URI || "mongodb://localhost:27017/medium"
+const url = "mongodb://smartmaxdev:testuser1@ds121341.mlab.com:21341/renercrows"
 
 /** configure cloudinary */
 cloudinary.config({

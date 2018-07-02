@@ -6,7 +6,9 @@ import {
     toggleClose,
     toggleOpen
  } from './../redux/actions/actions'
+
 class SignInWith extends Component {
+
     render() {
     const responseGoogle = (res) => {
         let postData = {
@@ -22,6 +24,7 @@ class SignInWith extends Component {
         this.props.SignInUser(postData)
         this.props.toggleClose()
     }
+
         return ( 
             <div>
                 <div data-behavior="overlay" className={this.props.modalMode === true ? 'overlay overlay-hugeinc open' : 'overlay overlay-hugeinc'}>
@@ -29,14 +32,16 @@ class SignInWith extends Component {
         <nav>
             <h2 className="grayed-heading center">Sign In</h2>
             <ul className="omniauth-button-group">
+
                 <li className="omniauth-button google">
                     <GoogleLogin className="button google"
-                    clientId="YOUR_CLIENT_ID_HERE.apps.googleusercontent.com"
+                    clientId="886637869712-573t01u5erqv7dh8ilt0rbi7mftki3ts.apps.googleusercontent.com"
                     onSuccess={responseGoogle}
                     onFailure={responseGoogle} >
                         <i className="fa fa-google"></i><span> SignIn with Google</span>
                     </GoogleLogin>
                 </li>
+
             </ul>
         </nav>
     </div>
@@ -49,6 +54,7 @@ const mapStateToProps = state => {
         modalMode: state.common.modalMode
     }
 }
+
 export default connect(mapStateToProps, {
     toggleClose,
     toggleOpen,

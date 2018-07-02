@@ -1,5 +1,5 @@
-// server/models/User.js
 const mongoose = require('mongoose')
+
 let UserSchema = new mongoose.Schema(
     {
         name: String,
@@ -22,16 +22,13 @@ let UserSchema = new mongoose.Schema(
         ]
     }
 )
-
-UserSchema.method.follow = function (user_id) {
+UserSchema.methods.follow = function (user_id) {
     if (this.following.indexOf(user_id) === -1) {
-        this.following.push(user_id)
+        this.following.push(user_id)        
     }
     return this.save()
 }
-
-UserSchema.method.addFollower = function (fs) {
-    this.followers.push(fs)
+UserSchema.methods.addFollower = function (fs) {
+    this.followers.push(fs)        
 }
-
-module.exports = mongoose.model('User' , UserSchema)
+module.exports = mongoose.model('User', UserSchema)
