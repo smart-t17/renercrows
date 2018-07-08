@@ -1,7 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import { GoogleLogout } from 'react-google-login';
+
+const logout = () => {
+    localStorage.removeItem('Auth');
+    console.log('logout')
+}
 
 class Header extends Component {
+
+    
     render() {
         return ( 
             <div>
@@ -32,7 +40,9 @@ class Header extends Component {
             <div className="folding-nav">
                 <ul className="nav navbar-nav navbar-right">
                     {this.props.isAuth ? <li className="new-post-button"><a className="button" data-behavior="trigger-overlay" href="/editor">Write a story</a></li> : ''}
-                    {this.props.isAuth ? '' : <li onClick={this.props.openSignInWith} className="sign-in-button"><a className="button green-border-button" data-behavior="trigger-overlay" href="#">Sign in / Sign up</a></li>}
+                    {this.props.isAuth ?<button onClick={logout} className="button">
+                            Log out
+                        </button>: <li onClick={this.props.openSignInWith} className="sign-in-button"><a className="button green-border-button" data-behavior="trigger-overlay" href="#">Sign in / Sign up</a></li>}
                 </ul>
             </div>
 

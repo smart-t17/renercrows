@@ -28,23 +28,23 @@ class SignInWith extends Component {
         return ( 
             <div>
                 <div data-behavior="overlay" className={this.props.modalMode === true ? 'overlay overlay-hugeinc open' : 'overlay overlay-hugeinc'}>
-        <button onClick={this.props.toggleClose} data-behavior="close-overlay" type="button" className="overlay-close"><span className="glyphicon glyphicon-remove"></span></button>
-        <nav>
-            <h2 className="grayed-heading center">Sign In</h2>
-            <ul className="omniauth-button-group">
+                    <button onClick={this.props.toggleClose} data-behavior="close-overlay" type="button" className="overlay-close"><span className="glyphicon glyphicon-remove"></span></button>
+                    <nav>
+                        <h2 className="grayed-heading center">Sign In</h2>
+                        <ul className="omniauth-button-group">
 
-                <li className="omniauth-button google">
-                    <GoogleLogin className="button google"
-                    clientId="886637869712-573t01u5erqv7dh8ilt0rbi7mftki3ts.apps.googleusercontent.com"
-                    onSuccess={responseGoogle}
-                    onFailure={responseGoogle} >
-                        <i className="fa fa-google"></i><span> SignIn with Google</span>
-                    </GoogleLogin>
-                </li>
+                            <li className="omniauth-button google">
+                                <GoogleLogin className="button google"
+                                clientId="886637869712-573t01u5erqv7dh8ilt0rbi7mftki3ts.apps.googleusercontent.com"
+                                onSuccess={responseGoogle}
+                                onFailure={responseGoogle} >
+                                    <i className="fa fa-google"></i><span> SignIn with Google</span>
+                                </GoogleLogin>
+                            </li>
 
-            </ul>
-        </nav>
-    </div>
+                        </ul>
+                    </nav>
+                </div>
             </div>
         );
     }
